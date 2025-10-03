@@ -74,3 +74,17 @@ int io_put_nb_base(int fd, int nb, char *base) {
   io_put_char(fd, base[nb % bs_val]);
   return count;
 }
+
+int io_get_char(int fd, char *c) {
+  int count;
+
+  count = read(fd, c, 1);
+  return count;
+}
+
+int io_get_str(int fd, char *str, int size) {
+  int count;
+
+  count = read(fd, str, size);
+  return count;
+}
