@@ -2,6 +2,27 @@
 
 #include <unistd.h>
 
+int _find(char c, char *str);
+int _len(char *str);
+
+int _len(char *str) {
+  int index;
+
+  index = 0;
+  while (str[index])
+    index++;
+  return index;
+}
+
+int _find(char c, char *str) {
+  int index;
+
+  index = 0;
+  while (str[index] && str[index] != c)
+    index++;
+  return index;
+}
+
 int io_put_char(int fd, char c) {
   int count;
 
@@ -25,14 +46,31 @@ int io_put_nb(int fd, int nb) {
   int count;
 
   lnb = nb;
-  count = 0;
+  count = 1;
   if (lnb < 0 ) {
     io_put_char(fd, '-');
     lnb = -lnb;
   }
-  if (nb >= 10)
-    count = io_put_nb(fd, (nb / 10));
+  if (lnb >= 10)
+    count += io_put_nb(fd, (nb / 10));
   io_put_char(fd, ((nb % 10) + '0'));
-  count++;
+  return count;
+}
+
+int io_put_nb_base(int fd, int nb, char *base) {
+  long lnb;
+  int count;
+  int bs_val;
+
+  lnb = nb;
+  count = 1;
+  bs_val = _len(base);
+  if (lnb < 0 ) {
+    io_put_char(fd, '-');
+    lnb = -lnb;
+  }
+  if (lnb >= bs_val)
+    count += io_put_nb_base(fd, (nb / bs_val), base);
+  io_put_char(fd, base[nb % bs_val]);
   return count;
 }
