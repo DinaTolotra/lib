@@ -2,7 +2,6 @@
 
 #include <unistd.h>
 
-int _find(char c, char *str);
 int _len(char *str);
 
 int _len(char *str) {
@@ -10,15 +9,6 @@ int _len(char *str) {
 
   index = 0;
   while (str[index])
-    index++;
-  return index;
-}
-
-int _find(char c, char *str) {
-  int index;
-
-  index = 0;
-  while (str[index] && str[index] != c)
     index++;
   return index;
 }
