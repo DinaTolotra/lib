@@ -5,7 +5,7 @@ Yet an another personal library.
 - libio: *ongoing*
 - libstr: *ongoing*
 - libnb: *comming soon*
-- libfs: *comming soon*
+- libfs: *ongoing*
 ### libio
 - **Prefix**: io_
 - **API**:
@@ -30,3 +30,6 @@ Yet an another personal library.
      - char *str_from_nb(int nb);
      - int str_to_nb_base(char *str, char *base);
      - char *str_from_nb_base( - nb, char *base);
+### libfs
+- **Prefix**: fs_
+- **API**:
