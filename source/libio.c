@@ -31,6 +31,17 @@ int io_put_str(int fd, char *str) {
   return index;
 }
 
+int io_put_nstr(int fd, char *str, int n) {
+  int index; // also count of character
+
+  index = 0;
+  while (str[index] && index < n) {
+    io_put_char(fd, str[index]);
+    index++;
+  }
+  return index;
+}
+
 int io_put_nb(int fd, int nb) {
   long lnb;
   int count;

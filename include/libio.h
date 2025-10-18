@@ -5,6 +5,7 @@
 
 int io_put_char(int fd, char c);
 int io_put_str(int fd, char *str);
+int io_put_nstr(int fd, char *str, int n);
 int io_put_nb(int fd, int nb);
 int io_put_nb_base(int fd, int nb, char *base);
 

@@ -11,6 +11,7 @@ Yet an another personal library.
 - **API**:
      - int io_put_char(int fd, char c);
      - int io_put_str(int fd, char *str);
+     - int io_put_nstr(int fd, char *str, int n);
      - int io_put_nb(int fd, int nb);
      - int io_put_nb_base(int fd, int nb, char *base);
      - int io_get_char(int fd, char *c);
@@ -33,3 +34,6 @@ Yet an another personal library.
 ### libfs
 - **Prefix**: fs_
 - **API**:
+     - int fs_opne_r(char *file);
+     - int fs_opne_w(char *file);
+     - int fs_close(int fd);
